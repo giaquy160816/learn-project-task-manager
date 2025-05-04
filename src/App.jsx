@@ -3,9 +3,10 @@ import { ProjectsContext, ProjectsDispatchContext } from "./contexts/ProjectsCon
 import { projectsReducer } from "./reducers/projectsReducer";
 import AddProject from "./components/AddProject";
 import ProjectList from "./components/ProjectList";
+import ProjectModel from "./models/ProjectModel";
 
 function App() {
-  const [projects, dispatch] = useReducer(projectsReducer, []);
+  const [projects, dispatch] = useReducer(projectsReducer, ProjectModel.getAll());
 
   return (
     <ProjectsContext.Provider value={projects}>
