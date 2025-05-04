@@ -10,8 +10,8 @@ function App() {
   return (
     <ProjectsContext.Provider value={projects}>
       <ProjectsDispatchContext.Provider value={dispatch}>
-        <div className="container mx-auto p-4">
-          <h1 className="text-3xl font-bold mb-4">Project Management</h1>
+        <div className="max-w-[800px] mx-auto p-4">
+          <h1 className="text-3xl font-bold mb-4 text-center">Project Management</h1>
           <AddProject />
           <ProjectList />
         </div>
@@ -19,4 +19,5 @@ function App() {
     </ProjectsContext.Provider>
   );
 }
+
 export default App;

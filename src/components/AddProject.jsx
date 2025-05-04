@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useProjectsDispatch } from "../contexts/ProjectsContext";
+import { generateId } from "../utils/helpers";
 
 function AddProject() {
   const [name, setName] = useState("");
@@ -10,7 +11,7 @@ function AddProject() {
     e.preventDefault();
     dispatch({
       type: "ADD_PROJECT",
-      payload: { id: crypto.randomUUID(), name, description, tasks: [] },
+      payload: { id: generateId(), name, description, tasks: [] },
     });
     setName("");
     setDescription("");

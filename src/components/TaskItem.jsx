@@ -21,8 +21,8 @@ function TaskItem({ task, projectId }) {
     };
 
     const handleSave = () => {
+        // If project is changed, move the task first
         if (editedProjectId !== projectId) {
-            // Move task to different project
             dispatch({
                 type: "MOVE_TASK_BETWEEN_PROJECTS",
                 payload: {
@@ -33,12 +33,12 @@ function TaskItem({ task, projectId }) {
             });
         }
         
-        // Update task name if changed
+        // Then update the task name if it's changed
         if (editedName !== task.name) {
             dispatch({
                 type: "EDIT_TASK",
                 payload: {
-                    projectId: editedProjectId,
+                    projectId: editedProjectId, // Use the new project ID
                     taskId: task.id,
                     name: editedName
                 }

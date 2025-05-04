@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useProjectsDispatch } from "../contexts/ProjectsContext";
 import TaskItem from "./TaskItem";
+import { generateId } from "../utils/helpers";
 
 function TaskList({ project }) {
     const dispatch = useProjectsDispatch();
@@ -10,7 +11,7 @@ function TaskList({ project }) {
         e.preventDefault();
         dispatch({
             type: "ADD_TASK",
-            payload: { projectId: project.id, task: { id: crypto.randomUUID(), name: taskName, completed: false } },
+            payload: { projectId: project.id, task: { id: generateId(), name: taskName, completed: false } },
         });
         setTaskName("");
     };
